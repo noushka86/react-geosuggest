@@ -18,7 +18,6 @@ export default ({
   const classes = classnames(
     {'geosuggest__suggests--hidden': isHidden}
   );
-
   return <ul className={class}>
     {suggests.map(suggest => {
       const isActive = activeSuggest &&
