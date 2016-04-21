@@ -1,6 +1,6 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
-import classnames from 'classnames';
 import SuggestItem from './suggest-item';
+import classnames from 'classnames';
 
 /**
  * The list with suggestions. Either from an API or provided as fixture
@@ -16,17 +16,16 @@ export default ({
   onSuggestSelect = () => {}
 }) => {
   const classes = classnames(
-    'geosuggest__suggests',
     {'geosuggest__suggests--hidden': isHidden}
   );
 
-  return <ul className={classes}>
+  return <ul className={class}>
     {suggests.map(suggest => {
       const isActive = activeSuggest &&
         suggest.placeId === activeSuggest.placeId;
 
       return <SuggestItem key={suggest.placeId}
-        className={suggest.className}
+        className={this.props.itemClassName}
         suggest={suggest}
         isActive={isActive}
         onMouseDown={onSuggestMouseDown}

@@ -1,7 +1,6 @@
 /* global window */
 
 import React from 'react';
-import classnames from 'classnames';
 
 import defaults from './defaults';
 import propTypes from './prop-types';
@@ -301,10 +300,6 @@ class Geosuggest extends React.Component {
    */
   render() {
     const attributes = filterInputAttributes(this.props),
-      classes = classnames(
-        'geosuggest',
-        this.props.className
-      );
     var input = <Input className={this.props.inputClassName}
                  ref='input'
                  value={this.state.userInput}
@@ -315,19 +310,19 @@ class Geosuggest extends React.Component {
                  onPrev={() => this.activateSuggest('prev')}
                  onSelect={() => this.selectSuggest(this.state.activeSuggest)}
                  onEscape={this.hideSuggests.bind(this)} {...attributes} />,
+
       suggestionsList = <SuggestList isHidden={this.state.isSuggestsHidden}
+                   itemClassName={this.props.itemClassName}
                    suggests={this.state.suggests}
                    activeSuggest={this.state.activeSuggest}
                    onSuggestMouseDown={() => this.setState({ignoreBlur: true})}
                    onSuggestMouseOut={() => this.setState({ignoreBlur: false})}
                    onSuggestSelect={this.selectSuggest.bind(this)}/>;
 
-    return <div className={classes}>
-      <div className="geosuggest__input-wrapper">
-        {input}
-      </div>
-      <div className="geosuggest__suggests-wrapper">
+    return <div className={this.props.componentWrapperClassName}>
         {suggestionsList}
+      <div className={this.props.inputWrapperClassName}>
+        {input}
       </div>
     </div>;
   }

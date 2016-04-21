@@ -8,8 +8,12 @@ export default {
   initialValue: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   disabled: React.PropTypes.bool,
-  className: React.PropTypes.string,
+  geosuggestInputWrapper: React.PropTypes.string,
+  inputWrapperClassName: React.PropTypes.string,
+  componentWrapperClassName: React.PropTypes.string,
   inputClassName: React.PropTypes.string,
+  ulClassName: React.PropTypes.string,
+  itemClassName: React.PropTypes.string,
   location: React.PropTypes.object,
   radius: React.PropTypes.oneOfType([
     React.PropTypes.string,
